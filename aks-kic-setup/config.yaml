@@ -1,0 +1,62 @@
+# example configuration for AWS
+
+# cloud_provider: AWS
+# region: us-west-2
+# api_endpoint: http://127.0.0.1:8080/api
+# sync_interval_in_seconds: 5
+# upstreams:
+#   - name: backend1
+#     autoscaling_group: backend-group-1
+#     port: 80
+#     kind: http
+#   - name: backend2
+#     autoscaling_group: backend-group-2
+#     port: 80
+#     kind: http
+#   - name: tcp-backend
+#     autoscaling_group: backend-group-3
+#     port: 80
+#     kind: stream
+
+region: ap-south-1
+api_endpoint: http://127.0.0.1:8080/api
+sync_interval_in_seconds: 5
+cloud_provider: AWS
+upstreams:
+ - name: backend-one
+   autoscaling_group: mywebASG
+   port: 80
+   kind: http
+   max_conns: 0
+   max_fails: 1
+   fail_timeout: 10s
+   slow_start: 0s
+ - name: backend-eks
+   autoscaling_group: eks-Node-instances2-04c2cfed-a23a-b2ed-8a81-b1118e19a9ce 
+   port: 31159
+   kind: http
+   max_conns: 0
+   max_fails: 1
+   fail_timeout: 10s
+   slow_start: 0s
+
+# example configuration for Azure
+
+# cloud_provider: Azure
+# subscription_id: my_subscription_id
+# resource_group_name: my_resource_group
+# api_endpoint: http://127.0.0.1:8080/api
+# sync_interval_in_seconds: 5
+# upstreams:
+#   - name: backend1
+#     virtual_machine_scale_set: backend-group-1
+#     port: 80
+#     kind: http
+#   - name: backend2
+#     virtual_machine_scale_set: backend-group-2
+#     port: 80
+#     kind: http
+#   - name: tcp-backend
+#     virtual_machine_scale_set: backend-group-3
+#     port: 80
+#     kind: stream
