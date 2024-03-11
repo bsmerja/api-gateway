@@ -50,6 +50,3 @@ kubectl apply -f ~/arc-secret.yaml
 Create Arcadia specific virtual server
 
 kubectl apply -f ~/arc-virtual-server.yaml
-
-
-JamOPD&4*56(
